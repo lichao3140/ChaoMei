@@ -112,7 +112,7 @@ public abstract class BaseCompatActivity extends SupportActivity {
      *
      * @param msg 提示框内容字符串
      */
-    protected void sowProgressDialog(String msg) {
+    protected void showProgressDialog(String msg) {
         waitProgressDialog.setMessage(msg);
         waitProgressDialog.show();
     }
