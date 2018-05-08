@@ -1,0 +1,120 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.mob.sdk'
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "com.lichao.chaomei"
+        minSdkVersion 19
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        externalNativeBuild {
+            cmake {
+                cppFlags "-std=c++11 -frtti -fexceptions"
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }
+}
+
+MobSDK {
+    appKey "25a800a0e696c"
+    appSecret "e271de6bcbcb6a63b34f01a06da6b686"
+
+    SMSSDK{
+        gui false
+    }
+
+    MobLink {}
+
+    ShareSDK {
+        //平台配置信息
+        gui true
+        devInfo {
+            SinaWeibo {
+                sortId 4
+                appKey "889394388"
+                appSecret "a5827be6e9d8b1aa7e73642d0bca2c25"
+                callbackUri "http://www.sharesdk.cn"
+                shareByAppClient true
+            }
+            Wechat {
+                sortId 3
+                appId "wxdb0f7a71c883b423"
+                appSecret "64020361b8ec4c99936c0e3999a9f249"
+                bypassApproval false
+
+            }
+            WechatMoments {
+                appId "wxdb0f7a71c883b423"
+                appSecret "64020361b8ec4c99936c0e3999a9f249"
+                bypassApproval false
+
+            }
+            QQ {
+                appId "100371282"
+                appKey "aed9b0303e3ed1e27bae87c33761161d"
+                shareByAppClient true
+                bypassApproval false
+
+            }
+            QZone {
+                appId "100371282"
+                appKey "aed9b0303e3ed1e27bae87c33761161d"
+                bypassApproval false
+
+            }
+            Facebook {
+                sortId 1
+                appKey "1412473428822331"
+                appSecret "a42f4f3f867dc947b9ed6020c2e93558"
+                callbackUri "https://mob.com"
+            }
+            FacebookMessenger{
+                appId "1412473428822331"
+            }
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+
+    //fragmentation  https://github.com/YoKeyword/Fragmentation
+    implementation "me.yokeyword:fragmentation:$rootProject.fragmentationVersion"
+
+    //Butterknife  https://github.com/JakeWharton/butterknife
+    implementation "com.jakewharton:butterknife:$rootProject.butterknifeVersion"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterknifeVersion"
+
+    // Retrofit  https://github.com/square/retrofit
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
+
+    //okhttp3  https://github.com/square/okhttp
+    implementation "com.squareup.okhttp3:okhttp:$rootProject.okhttpVersion"
+
+    // Gson  https://github.com/google/gson
+    implementation "com.google.code.gson:gson:$rootProject.gsonVersion"
+
+    //Logger  https://github.com/orhanobut/logger
+    implementation "com.orhanobut:logger:$rootProject.loggerVersion"
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}
