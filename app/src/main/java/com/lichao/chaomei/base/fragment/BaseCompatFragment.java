@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 
 import com.lichao.chaomei.MyApplication;
 import com.lichao.chaomei.utils.AppUtils;
-import com.lichao.chaomei.widgets.WaitProgressDialog;
+import com.lichao.chaomei.ui.widgets.WaitProgressDialog;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;

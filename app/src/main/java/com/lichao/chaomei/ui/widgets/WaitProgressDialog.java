@@ -1,4 +1,4 @@
-package com.lichao.chaomei.widgets;
+package com.lichao.chaomei.ui.widgets;
 
 import android.app.ProgressDialog;
 import android.content.Context;

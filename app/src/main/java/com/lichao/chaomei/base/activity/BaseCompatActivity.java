@@ -16,7 +16,7 @@ import com.lichao.chaomei.utils.AppUtils;
 import com.lichao.chaomei.utils.SpUtils;
 import com.lichao.chaomei.utils.StatusBarUtils;
 import com.lichao.chaomei.utils.ThemeUtils;
-import com.lichao.chaomei.widgets.WaitProgressDialog;
+import com.lichao.chaomei.ui.widgets.WaitProgressDialog;
 import butterknife.ButterKnife;
 import me.yokeyword.fragmentation.SupportActivity;
 import me.yokeyword.fragmentation.anim.DefaultVerticalAnimator;
