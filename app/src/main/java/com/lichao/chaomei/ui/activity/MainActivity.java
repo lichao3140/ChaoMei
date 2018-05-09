@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.lichao.chaomei.R;
+import com.lichao.chaomei.base.activity.BaseCompatActivity;
 
 import cn.sharesdk.framework.Platform;
 import cn.sharesdk.onekeyshare.OnekeyShare;
@@ -17,21 +18,48 @@ import cn.sharesdk.onekeyshare.ShareContentCustomizeCallback;
  * Email: lichao3140@gmail.com
  * Version: v1.0
  */
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseCompatActivity {
 
     static {
         System.loadLibrary("native-lib");
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        share();
-        TextView tv = (TextView) findViewById(R.id.sample_text);
-        tv.setText(stringFromJNI());
+    protected void initData() {
+        super.initData();
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        //setContentView(R.layout.activity_main);
+//        //share();
+//        TextView tv = (TextView) findViewById(R.id.sample_text);
+//        tv.setText(stringFromJNI());
+//    }
+
+    @Override
+    protected void initView(Bundle savedInstanceState) {
+        if (savedInstanceState == null) {
+
+        } else {
+
+        }
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_main;
+    }
+
+    /**
+     * 分享功能
+     */
     private void share() {
         OnekeyShare oks = new OnekeyShare();
         oks.setSilent(false);
