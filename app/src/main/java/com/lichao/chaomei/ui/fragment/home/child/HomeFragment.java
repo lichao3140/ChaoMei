@@ -34,7 +34,6 @@ import butterknife.Unbinder;
 public class HomeFragment extends BaseMVPCompatFragment<HomeMainContract.HomeMainPresenter>
         implements HomeMainContract.IHomeMainView {
 
-
     @BindView(R.id.toolbar)
     Toolbar toolbar;
     @BindView(R.id.tl_tabs)

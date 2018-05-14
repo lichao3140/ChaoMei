@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.mob.sdk'
 
 ext {
     SUPPORT_LIBRARY_VERSION = '27.1.1'
@@ -30,67 +29,6 @@ android {
             path "CMakeLists.txt"
         }
     }
-}
-
-MobSDK {
-    appKey "25a800a0e696c"
-    appSecret "e271de6bcbcb6a63b34f01a06da6b686"
-
-    SMSSDK{
-        gui false
-    }
-
-    MobLink {}
-
-    ShareSDK {
-        //平台配置信息
-        gui true
-        devInfo {
-            SinaWeibo {
-                sortId 4
-                appKey "889394388"
-                appSecret "a5827be6e9d8b1aa7e73642d0bca2c25"
-                callbackUri "http://www.sharesdk.cn"
-                shareByAppClient true
-            }
-            Wechat {
-                sortId 3
-                appId "wxdb0f7a71c883b423"
-                appSecret "64020361b8ec4c99936c0e3999a9f249"
-                bypassApproval false
-
-            }
-            WechatMoments {
-                appId "wxdb0f7a71c883b423"
-                appSecret "64020361b8ec4c99936c0e3999a9f249"
-                bypassApproval false
-
-            }
-            QQ {
-                appId "100371282"
-                appKey "aed9b0303e3ed1e27bae87c33761161d"
-                shareByAppClient true
-                bypassApproval false
-
-            }
-            QZone {
-                appId "100371282"
-                appKey "aed9b0303e3ed1e27bae87c33761161d"
-                bypassApproval false
-
-            }
-            Facebook {
-                sortId 1
-                appKey "1412473428822331"
-                appSecret "a42f4f3f867dc947b9ed6020c2e93558"
-                callbackUri "https://mob.com"
-            }
-            FacebookMessenger{
-                appId "1412473428822331"
-            }
-        }
-    }
-
 }
 
 dependencies {
@@ -124,6 +62,9 @@ dependencies {
 
     //Logger  https://github.com/orhanobut/logger
     implementation "com.orhanobut:logger:2.2.0"
+
+    //circle imageview
+    implementation "de.hdodenhof:circleimageview:2.1.0"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'

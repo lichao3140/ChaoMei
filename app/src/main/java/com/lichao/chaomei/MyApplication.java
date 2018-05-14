@@ -3,7 +3,6 @@ package com.lichao.chaomei;
 import android.app.Application;
 import android.content.Context;
 import android.os.Handler;
-import com.mob.MobSDK;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
 
@@ -21,7 +20,7 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         // 初始化Mob
-        MobSDK.init(this);
+        //MobSDK.init(this);
         context = getApplicationContext();
         handler = new Handler();
         mainThreadId = android.os.Process.myTid();
