@@ -19,9 +19,11 @@ import com.lichao.chaomei.anim.ToolbarAnimManager;
 import com.lichao.chaomei.base.BasePresenter;
 import com.lichao.chaomei.base.activity.BaseCompatActivity;
 import com.lichao.chaomei.base.fragment.BaseMVPCompatFragment;
+import com.lichao.chaomei.constant.BundleKeyConstant;
 import com.lichao.chaomei.constant.TabFragmentIndex;
 import com.lichao.chaomei.contract.home.HomeMainContract;
 import com.lichao.chaomei.presenter.home.HomeMainPresenter;
+import com.lichao.chaomei.ui.activity.detail.WebViewLoadActivity;
 import com.lichao.chaomei.ui.fragment.home.child.tabs.WangyiFragment;
 import com.lichao.chaomei.ui.fragment.home.child.tabs.WeixinFragment;
 import com.lichao.chaomei.ui.fragment.home.child.tabs.ZhihuFragment;
@@ -123,7 +125,11 @@ public class HomeFragment extends BaseMVPCompatFragment<HomeMainContract.HomeMai
         fabDownload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Bundle bundle = new Bundle();
+                bundle.putString(BundleKeyConstant.ARG_KEY_WEB_VIEW_LOAD_TITLE, "Yizhi");
+                bundle.putString(BundleKeyConstant.ARG_KEY_WEB_VIEW_LOAD_URL,
+                        "https://github.com/Horrarndoo/YiZhi");
+                startNewActivity(WebViewLoadActivity.class, bundle);
             }
         });
 

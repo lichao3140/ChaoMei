@@ -223,8 +223,7 @@ public class FileUtils {
      * @param saveResultCallback 保存结果callback
      */
     public static void saveBitmap(final Context context, final String fileName, final Bitmap bmp,
-                                  final SaveResultCallback
-                                          saveResultCallback) {
+                                  final SaveResultCallback saveResultCallback) {
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -232,7 +231,7 @@ public class FileUtils {
                 if (!appDir.exists()) {
                     appDir.mkdir();
                 }
-                //                SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmmss");
+                // SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmmss");
                 // 设置以当前时间格式为图片名称
                 String saveFileName = MD5Utils.getMD5("chaomei_pic" + fileName) + ".png";
                 saveFileName = saveFileName.substring(20);//取前20位作为SaveName

@@ -45,6 +45,6 @@ public class ZhihuAdapter extends BaseCompatAdapter<ZhihuDailyItemBean, BaseView
             }
         }
         helper.setText(R.id.tv_item_title, item.getTitle());
-        Glide.with(mContext).load(item.getImages()[0]).into((ImageView) helper.getView(R.id.iv_item_image));
+        Glide.with(mContext).load(item.getImages()[0]).crossFade().into((ImageView) helper.getView(R.id.iv_item_image));
     }
 }
