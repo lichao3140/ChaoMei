@@ -11,13 +11,18 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import com.lichao.chaomei.R;
 import com.lichao.chaomei.adapter.FragmentAdapter;
+import com.lichao.chaomei.anim.ToolbarAnimManager;
 import com.lichao.chaomei.base.BasePresenter;
+import com.lichao.chaomei.base.activity.BaseCompatActivity;
 import com.lichao.chaomei.base.fragment.BaseMVPCompatFragment;
 import com.lichao.chaomei.constant.TabFragmentIndex;
 import com.lichao.chaomei.contract.home.HomeMainContract;
+import com.lichao.chaomei.presenter.home.HomeMainPresenter;
+import com.lichao.chaomei.utils.SpUtils;
 import com.orhanobut.logger.Logger;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -44,8 +49,6 @@ public class HomeFragment extends BaseMVPCompatFragment<HomeMainContract.HomeMai
     ViewPager vpFragment;
     @BindView(R.id.fab_download)
     FloatingActionButton fabDownload;
-    @BindView(R.id.home_container)
-    CoordinatorLayout homeContainer;
     Unbinder unbinder;
 
     protected OnOpenDrawerLayoutListener onOpenDrawerLayoutListener;
@@ -82,7 +85,7 @@ public class HomeFragment extends BaseMVPCompatFragment<HomeMainContract.HomeMai
     @NonNull
     @Override
     public BasePresenter initPresenter() {
-        return null;
+        return HomeMainPresenter.newInstance();
     }
 
     @Override
@@ -102,6 +105,7 @@ public class HomeFragment extends BaseMVPCompatFragment<HomeMainContract.HomeMai
                 }
             }
         });
+
         appBar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             @Override
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
@@ -112,6 +116,7 @@ public class HomeFragment extends BaseMVPCompatFragment<HomeMainContract.HomeMai
                 }
             }
         });
+
         fabDownload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -119,7 +124,23 @@ public class HomeFragment extends BaseMVPCompatFragment<HomeMainContract.HomeMai
             }
         });
 
+        toolbar.inflateMenu(R.menu.toolbar_menu);
+        toolbar.getMenu().findItem(R.id.night).setChecked(SpUtils.getNightModel(mContext));
+        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.night:
+                        item.setChecked(!item.isChecked());
+                        SpUtils.setNightModel(mContext, item.isChecked());
+                        ((BaseCompatActivity) mActivity).reload();
+                        break;
+                }
+                return false;
+            }
+        });
 
+        ToolbarAnimManager.animIn(mContext, toolbar);
     }
 
     @Override
@@ -147,9 +168,9 @@ public class HomeFragment extends BaseMVPCompatFragment<HomeMainContract.HomeMai
         tlTabs.setupWithViewPager(vpFragment);
         tlTabs.setVerticalScrollbarPosition(TabFragmentIndex.TAB_ZHIHU_INDEX);
         //tlTabs.setupWithViewPager方法内部会remove所有的tabs，这里重新设置一遍tabs的text，否则tabs的text不显示
-        for (int i = 0; i < tabs.length; i++) {
-            tlTabs.getTabAt(i).setText(tabs[i]);
-        }
+//        for (int i = 0; i < tabs.length; i++) {
+////            tlTabs.getTabAt(i).setText(tabs[i]);
+////        }
     }
 
     /**

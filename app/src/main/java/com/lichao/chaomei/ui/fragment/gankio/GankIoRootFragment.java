@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 
+import com.lichao.chaomei.R;
 import com.lichao.chaomei.base.fragment.BaseCompatFragment;
 
 /**
@@ -13,9 +14,16 @@ import com.lichao.chaomei.base.fragment.BaseCompatFragment;
  */
 public class GankIoRootFragment extends BaseCompatFragment {
 
+    public static GankIoRootFragment newInstance() {
+        Bundle args = new Bundle();
+        GankIoRootFragment fragment = new GankIoRootFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
     @Override
     public int getLayoutId() {
-        return 0;
+        return R.layout.fragment_gank_io;
     }
 
     @Override
