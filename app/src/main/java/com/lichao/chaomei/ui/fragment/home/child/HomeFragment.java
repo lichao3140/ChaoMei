@@ -22,6 +22,8 @@ import com.lichao.chaomei.base.fragment.BaseMVPCompatFragment;
 import com.lichao.chaomei.constant.TabFragmentIndex;
 import com.lichao.chaomei.contract.home.HomeMainContract;
 import com.lichao.chaomei.presenter.home.HomeMainPresenter;
+import com.lichao.chaomei.ui.fragment.home.child.tabs.WangyiFragment;
+import com.lichao.chaomei.ui.fragment.home.child.tabs.WeixinFragment;
 import com.lichao.chaomei.ui.fragment.home.child.tabs.ZhihuFragment;
 import com.lichao.chaomei.utils.SpUtils;
 import com.orhanobut.logger.Logger;
@@ -154,13 +156,13 @@ public class HomeFragment extends BaseMVPCompatFragment<HomeMainContract.HomeMai
                     fragments.add(ZhihuFragment.newInstance());
                     break;
                 case TabFragmentIndex.TAB_WANGYI_INDEX:
-                    //fragments.add(WangyiFragment.newInstance());
+                    fragments.add(WangyiFragment.newInstance());
                     break;
                 case TabFragmentIndex.TAB_WEIXIN_INDEX:
-                    //fragments.add(WeixinFragment.newInstance());
+                    fragments.add(WeixinFragment.newInstance());
                     break;
                 default:
-                    //fragments.add(ZhihuFragment.newInstance());
+                    fragments.add(ZhihuFragment.newInstance());
                     break;
             }
         }
@@ -169,9 +171,9 @@ public class HomeFragment extends BaseMVPCompatFragment<HomeMainContract.HomeMai
         tlTabs.setupWithViewPager(vpFragment);
         tlTabs.setVerticalScrollbarPosition(TabFragmentIndex.TAB_ZHIHU_INDEX);
         //tlTabs.setupWithViewPager方法内部会remove所有的tabs，这里重新设置一遍tabs的text，否则tabs的text不显示
-//        for (int i = 0; i < tabs.length; i++) {
-////            tlTabs.getTabAt(i).setText(tabs[i]);
-////        }
+       for (int i = 0; i < tabs.length; i++) {
+            tlTabs.getTabAt(i).setText(tabs[i]);
+        }
     }
 
     /**

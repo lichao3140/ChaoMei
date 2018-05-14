@@ -7,10 +7,13 @@ import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
 
 public class MyApplication extends Application {
+    //这个key是自己在聚合数据申请的key，需要自己去聚合数据申请
+    public static final String JU_HE_APP_KEY = "bc7c0000b8bb8b651f06054811fcfbab";
+
     protected static Context context;
     protected static Handler handler;
     protected static int mainThreadId;
-    private static MyApplication mApp;
+    public static MyApplication mApp;
 
     public static synchronized MyApplication getInstance() {
         return mApp;
@@ -21,6 +24,7 @@ public class MyApplication extends Application {
         super.onCreate();
         // 初始化Mob
         //MobSDK.init(this);
+        mApp = this;
         context = getApplicationContext();
         handler = new Handler();
         mainThreadId = android.os.Process.myTid();
