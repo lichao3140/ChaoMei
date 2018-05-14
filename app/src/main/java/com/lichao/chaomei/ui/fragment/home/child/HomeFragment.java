@@ -22,6 +22,7 @@ import com.lichao.chaomei.base.fragment.BaseMVPCompatFragment;
 import com.lichao.chaomei.constant.TabFragmentIndex;
 import com.lichao.chaomei.contract.home.HomeMainContract;
 import com.lichao.chaomei.presenter.home.HomeMainPresenter;
+import com.lichao.chaomei.ui.fragment.home.child.tabs.ZhihuFragment;
 import com.lichao.chaomei.utils.SpUtils;
 import com.orhanobut.logger.Logger;
 import java.util.ArrayList;
@@ -150,7 +151,7 @@ public class HomeFragment extends BaseMVPCompatFragment<HomeMainContract.HomeMai
             tlTabs.addTab(tlTabs.newTab().setText(tabs[i]));
             switch (i) {
                 case TabFragmentIndex.TAB_ZHIHU_INDEX:
-                    //fragments.add(ZhihuFragment.newInstance());
+                    fragments.add(ZhihuFragment.newInstance());
                     break;
                 case TabFragmentIndex.TAB_WANGYI_INDEX:
                     //fragments.add(WangyiFragment.newInstance());

@@ -47,15 +47,19 @@ dependencies {
     implementation "com.jakewharton:butterknife:8.8.1"
     annotationProcessor "com.jakewharton:butterknife-compiler:8.8.1"
 
-    // Retrofit  https://github.com/ReactiveX/RxJava
+    // RxJava  https://github.com/ReactiveX/RxJava
     implementation "io.reactivex.rxjava2:rxjava:2.0.1"
-    // Retrofit  https://github.com/ReactiveX/RxAndroid
+    // RxJava  https://github.com/ReactiveX/RxAndroid
     implementation "io.reactivex.rxjava2:rxandroid:2.0.0"
     implementation "com.jakewharton.rxbinding2:rxbinding:2.1.1"
 
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:2.4.0"
+    implementation "com.squareup.retrofit2:converter-gson:2.4.0"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.4.0"
     //okhttp3  https://github.com/square/okhttp
     implementation "com.squareup.okhttp3:okhttp:3.10.0"
-    implementation "com.squareup.okhttp3:logging-interceptor:3.4.1"
+    implementation "com.squareup.okhttp3:logging-interceptor:3.10.0"
 
     // Gson  https://github.com/google/gson
     implementation "com.google.code.gson:gson:2.8.4"
@@ -65,6 +69,16 @@ dependencies {
 
     //circle imageview
     implementation "de.hdodenhof:circleimageview:2.1.0"
+
+    //BaseRecyclerViewAdapterHelper
+    implementation "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.28"
+
+    // Glide
+    implementation "com.github.bumptech.glide:glide:4.7.1"
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
+
+    //permissions
+    implementation "com.tbruyelle.rxpermissions2:rxpermissions:0.9.4@aar"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
