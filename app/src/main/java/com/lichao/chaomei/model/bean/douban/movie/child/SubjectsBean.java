@@ -2,6 +2,7 @@ package com.lichao.chaomei.model.bean.douban.movie.child;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -9,7 +10,7 @@ import java.util.List;
  * Email: lichao3140@gmail.com
  * Version: v1.0  豆瓣热映item详情
  */
-public class SubjectsBean {
+public class SubjectsBean implements Serializable {
     /**
      * rating : {"max":10,"average":6.9,"stars":"35","min":0}
      * genres : ["剧情","喜剧"]

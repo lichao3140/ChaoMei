@@ -71,6 +71,8 @@
 
         <activity android:name=".ui.activity.detail.GankIoDetailActivity" />
 
+        <activity android:name=".ui.activity.detail.MovieDetailActivity" />
+
         <activity android:name=".ui.activity.pic.ImageBrowseActivity" />
 
 

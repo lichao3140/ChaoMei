@@ -7,6 +7,7 @@ import com.lichao.chaomei.contract.movie.TopMovieContract;
 import com.lichao.chaomei.model.bean.douban.movie.HotMovieBean;
 import com.lichao.chaomei.model.bean.douban.movie.child.SubjectsBean;
 import com.lichao.chaomei.model.movie.TopMovieModel;
+import com.lichao.chaomei.ui.activity.detail.MovieDetailActivity;
 
 import io.reactivex.functions.Consumer;
 
@@ -92,7 +93,7 @@ public class TopMoviePresenter extends TopMovieContract.TopMoivePresenter {
     @Override
     public void onItemClick(int position, SubjectsBean item, ImageView imageView) {
         //        Logger.e("position " + position + " is clicked.");
-        //MovieDetailActivity.start(mIView.getBindActivity(), item, imageView);
+        MovieDetailActivity.start(mIView.getBindActivity(), item, imageView);
     }
 
     @Override
