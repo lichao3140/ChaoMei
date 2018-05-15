@@ -8,6 +8,7 @@ import com.lichao.chaomei.contract.gankio.tabs.GankIoCustomContract;
 import com.lichao.chaomei.model.bean.gankio.GankIoCustomItemBean;
 import com.lichao.chaomei.model.bean.gankio.GankIoCustomListBean;
 import com.lichao.chaomei.model.gankio.tabs.GankIoCustomModel;
+import com.lichao.chaomei.ui.activity.detail.GankIoDetailActivity;
 import com.lichao.chaomei.ui.activity.pic.ImageBrowseActivity;
 import com.orhanobut.logger.Logger;
 
@@ -127,7 +128,7 @@ public class GankIoCustomPresenter extends GankIoCustomContract.GankIoCustomPres
         } else {
             bundle.putString(BundleKeyConstant.ARG_KEY_GANKIO_DETAIL_URL, item.getUrl());
             bundle.putString(BundleKeyConstant.ARG_KEY_GANKIO_DETAIL_TITLE, item.getDesc());
-            //mIView.startNewActivity(GankIoDetailActivity.class, bundle);
+            mIView.startNewActivity(GankIoDetailActivity.class, bundle);
         }
     }
 

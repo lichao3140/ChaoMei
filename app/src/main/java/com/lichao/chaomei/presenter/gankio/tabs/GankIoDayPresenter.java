@@ -8,6 +8,7 @@ import com.lichao.chaomei.contract.gankio.tabs.GankIoDayContract;
 import com.lichao.chaomei.model.bean.gankio.GankIoDayItemBean;
 import com.lichao.chaomei.model.gankio.tabs.GankIoDayModel;
 import com.lichao.chaomei.rxbus.RxBus;
+import com.lichao.chaomei.ui.activity.detail.GankIoDetailActivity;
 import com.lichao.chaomei.ui.activity.pic.ImageBrowseActivity;
 import java.util.ArrayList;
 import java.util.List;
@@ -76,7 +77,7 @@ public class GankIoDayPresenter extends GankIoDayContract.GankIoDayPresenter {
         } else {
             bundle.putString(BundleKeyConstant.ARG_KEY_GANKIO_DETAIL_URL, item.getUrl());
             bundle.putString(BundleKeyConstant.ARG_KEY_GANKIO_DETAIL_TITLE, item.getDesc());
-            //mIView.startNewActivity(GankIoDetailActivity.class, bundle);
+            mIView.startNewActivity(GankIoDetailActivity.class, bundle);
         }
     }
 

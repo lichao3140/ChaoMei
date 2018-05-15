@@ -69,6 +69,8 @@
 
         <activity android:name=".ui.activity.detail.WeixinChoiceDetailActivity" />
 
+        <activity android:name=".ui.activity.detail.GankIoDetailActivity" />
+
         <activity android:name=".ui.activity.pic.ImageBrowseActivity" />
 
 
