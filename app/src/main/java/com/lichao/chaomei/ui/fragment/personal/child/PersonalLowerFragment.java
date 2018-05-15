@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.lichao.chaomei.R;
 import com.lichao.chaomei.base.fragment.BaseCompatFragment;
+import com.lichao.chaomei.ui.activity.AboutActivity;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -48,7 +49,7 @@ public class PersonalLowerFragment extends BaseCompatFragment {
                 start(PersonalSettingFragment.newInstance());
                 break;
             case R.id.tv_btn_about:
-                //startActivity(new Intent(mActivity, AboutActivity.class));
+                startActivity(new Intent(mActivity, AboutActivity.class));
                 break;
             default:
                 break;

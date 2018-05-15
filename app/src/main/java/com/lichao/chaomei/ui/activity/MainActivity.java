@@ -178,11 +178,11 @@ public class MainActivity extends BaseCompatActivity implements HomeFragment.OnO
 //                        showShare();
                         break;
                     case R.id.item_model:
-//                        SpUtils.setNightModel(mContext, !SpUtils.getNightModel(mContext));
-//                        MainActivity.this.reload();
+                        SpUtils.setNightModel(mContext, !SpUtils.getNightModel(mContext));
+                        MainActivity.this.reload();
                         break;
                     case R.id.item_about:
-//                        startActivity(AboutActivity.class);
+                        startActivity(AboutActivity.class);
                         break;
                 }
 
