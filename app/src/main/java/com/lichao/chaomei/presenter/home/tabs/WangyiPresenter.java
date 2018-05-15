@@ -8,6 +8,7 @@ import com.lichao.chaomei.contract.home.tabs.WangyiContract;
 import com.lichao.chaomei.model.bean.wangyi.WangyiNewsItemBean;
 import com.lichao.chaomei.model.bean.wangyi.WangyiNewsListBean;
 import com.lichao.chaomei.model.home.tabs.WangyiModel;
+import com.lichao.chaomei.ui.activity.detail.WangyiDailyDetailActivity;
 import com.lichao.chaomei.utils.StringUtils;
 import com.orhanobut.logger.Logger;
 
@@ -121,7 +122,7 @@ public class WangyiPresenter extends WangyiContract.WangyiPresenter {
         bundle.putString(BundleKeyConstant.ARG_KEY_WANGYI_DETAIL_TITLE, item.getTitle());
         bundle.putString(BundleKeyConstant.ARG_KEY_WANGYI_DETAIL_IMAGE_URL, item.getImgsrc());
         bundle.putString(BundleKeyConstant.ARG_KEY_WANGYI_DETAIL_COPYRIGHT, item.getSource());
-        //mIView.startNewActivity(WangyiDailyDetailActivity.class, bundle);
+        mIView.startNewActivity(WangyiDailyDetailActivity.class, bundle);
     }
 
     @Override

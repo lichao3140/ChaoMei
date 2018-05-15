@@ -8,6 +8,7 @@ import com.lichao.chaomei.contract.home.tabs.ZhihuContract;
 import com.lichao.chaomei.model.bean.zhihu.ZhihuDailyItemBean;
 import com.lichao.chaomei.model.bean.zhihu.ZhihuDailyListBean;
 import com.lichao.chaomei.model.home.tabs.ZhihuModel;
+import com.lichao.chaomei.ui.activity.detail.ZhihuDailyDetailActivity;
 import com.orhanobut.logger.Logger;
 
 import io.reactivex.functions.Consumer;
@@ -106,7 +107,7 @@ public class ZhihuPresenter extends ZhihuContract.ZhihuPresenter {
         Bundle bundle = new Bundle();
         bundle.putString(BundleKeyConstant.ARG_KEY_ZHIHU_DETAIL_ID, item.getId());
         bundle.putString(BundleKeyConstant.ARG_KEY_ZHIHU_DETAIL_TITLE, item.getTitle());
-        //mIView.startNewActivity(ZhihuDailyDetailActivity.class, bundle);
+        mIView.startNewActivity(ZhihuDailyDetailActivity.class, bundle);
     }
 
     @Override

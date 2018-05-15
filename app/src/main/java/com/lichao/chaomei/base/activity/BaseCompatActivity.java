@@ -65,6 +65,7 @@ public abstract class BaseCompatActivity extends SupportActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         initData();
         initView(savedInstanceState);
+        AppManager.getAppManager().addActivity(this);
     }
 
     public void reload() {
@@ -74,7 +75,6 @@ public abstract class BaseCompatActivity extends SupportActivity {
         finish();
         overridePendingTransition(0, 0);
         startActivity(intent);
-        AppManager.getAppManager().finishActivity(this);
     }
 
     /**
