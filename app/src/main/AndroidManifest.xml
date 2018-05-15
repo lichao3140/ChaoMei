@@ -61,6 +61,8 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".ui.activity.personal.HeadSettingActivity" />
+
         <activity android:name=".ui.activity.detail.WebViewLoadActivity" />
 
         <activity android:name=".ui.activity.detail.ZhihuDailyDetailActivity" />
@@ -72,6 +74,8 @@
         <activity android:name=".ui.activity.detail.GankIoDetailActivity" />
 
         <activity android:name=".ui.activity.detail.MovieDetailActivity" />
+
+        <activity android:name=".ui.activity.detail.BookDetailActivity" />
 
         <activity android:name=".ui.activity.pic.ImageBrowseActivity" />
 

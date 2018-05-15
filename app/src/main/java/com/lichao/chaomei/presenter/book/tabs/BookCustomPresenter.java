@@ -6,6 +6,8 @@ import com.lichao.chaomei.contract.book.tabs.BookCustomContract;
 import com.lichao.chaomei.model.bean.douban.book.BookItemBean;
 import com.lichao.chaomei.model.bean.douban.book.BookListBean;
 import com.lichao.chaomei.model.book.tabs.BookCustomModel;
+import com.lichao.chaomei.ui.activity.detail.BookDetailActivity;
+
 import io.reactivex.functions.Consumer;
 
 /**
@@ -91,7 +93,7 @@ public class BookCustomPresenter extends BookCustomContract.BookCustomPresenter 
     @Override
     public void onItemClick(int position, BookItemBean item, ImageView imageView) {
 //        Logger.e("position " + position + " is clicked.");
-        //BookDetailActivity.start(mIView.getBindActivity(), item, imageView);
+        BookDetailActivity.start(mIView.getBindActivity(), item, imageView);
     }
 
     @Override
