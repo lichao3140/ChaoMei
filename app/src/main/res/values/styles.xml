@@ -31,7 +31,6 @@
         <item name="android:windowBackground">@drawable/flash_bg</item>
     </style>
 
-    <!--
     <style name="BottomSheet.StyleDialog" parent="BottomSheet.Dialog">
         <item name="android:backgroundDimAmount">0.5</item>
         <item name="android:windowAnimationStyle">@style/BottomSheet.Animation</item>
@@ -44,7 +43,6 @@
         <item name="bs_numColumns">5</item>
         <item name="bs_listStyle">@style/BottomSheet.List</item>
     </style>
-    -->
 
     <style name="AppBaseTheme" parent="AppThemeLight">
 

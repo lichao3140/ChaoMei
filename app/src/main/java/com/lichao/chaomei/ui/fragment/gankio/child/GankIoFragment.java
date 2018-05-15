@@ -21,7 +21,9 @@ import com.lichao.chaomei.contract.gankio.GankIoMainContract;
 import com.lichao.chaomei.presenter.gankio.GankIoMainPresenter;
 import com.lichao.chaomei.rxbus.RxBus;
 import com.lichao.chaomei.rxbus.Subscribe;
+import com.lichao.chaomei.ui.fragment.gankio.child.tabs.GankIoCustomFragment;
 import com.lichao.chaomei.ui.fragment.gankio.child.tabs.GankIoDayFragment;
+import com.lichao.chaomei.ui.fragment.gankio.child.tabs.GankIoWelfareFragment;
 import com.orhanobut.logger.Logger;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -138,10 +140,10 @@ public class GankIoFragment extends BaseMVPCompatFragment<GankIoMainContract.Gan
                     fragments.add(GankIoDayFragment.newInstance());
                     break;
                 case TabFragmentIndex.TAB_GANK_CUSTOM_INDEX:
-                    //fragments.add(GankIoCustomFragment.newInstance());
+                    fragments.add(GankIoCustomFragment.newInstance());
                     break;
                 case TabFragmentIndex.TAB_GANK_WELFARE_INDEX:
-                    //fragments.add(GankIoWelfareFragment.newInstance());
+                    fragments.add(GankIoWelfareFragment.newInstance());
                     break;
                 default:
                     fragments.add(GankIoDayFragment.newInstance());
@@ -154,9 +156,9 @@ public class GankIoFragment extends BaseMVPCompatFragment<GankIoMainContract.Gan
         tlTabs.setupWithViewPager(vpFragment);
         tlTabs.setVerticalScrollbarPosition(TabFragmentIndex.TAB_GANK_DAY_INDEX);
         //tlTabs.setupWithViewPager方法内部会remove所有的tabs，这里重新设置一遍tabs的text，否则tabs的text不显示
-//        for (int i = 0; i < tabs.length; i++) {
-//            tlTabs.getTabAt(i).setText(tabs[i]);
-//        }
+        for (int i = 0; i < tabs.length; i++) {
+            tlTabs.getTabAt(i).setText(tabs[i]);
+        }
     }
 
     @Override
