@@ -6,6 +6,7 @@ import android.view.View;
 
 import com.lichao.chaomei.R;
 import com.lichao.chaomei.base.fragment.BaseCompatFragment;
+import com.lichao.chaomei.ui.fragment.gankio.child.GankIoFragment;
 
 /**
  * Created by ChaoLi on 2018/5/8 0008 - 22:12
@@ -28,6 +29,8 @@ public class GankIoRootFragment extends BaseCompatFragment {
 
     @Override
     public void initUI(View view, @Nullable Bundle savedInstanceState) {
-
+        if (findChildFragment(GankIoFragment.class) == null) {
+            loadRootFragment(R.id.fl_container, GankIoFragment.newInstance());
+        }
     }
 }

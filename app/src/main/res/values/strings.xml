@@ -8,6 +8,8 @@
     <string name="loading">Loading……</string>
     <string name="load_failed">Load failed. Please click me again</string>
     <string name="press_again">Press again to exit</string>
+    <string name="transition_movie_img">transition_movie_img</string>
+    <string name="transition_book_img">transition_book_img</string>
 
     <!--历史数据界面-->
     <string name="history_day">Day</string>
