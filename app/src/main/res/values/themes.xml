@@ -39,8 +39,7 @@
         <item name="android:windowBackground">@color/window_background_dark</item>
         <item name="android:listDivider">@color/list_divider_dark</item>
         <item name="widgetBackground">@color/selectable_item_background_general_dark_normal</item>
-        <item name="widgetBackgroundDark">@color/selectable_item_background_general_dark_pressed
-        </item>
+        <item name="widgetBackgroundDark">@color/selectable_item_background_general_dark_pressed</item>
         <item name="widgetBackgroundTitle">?attr/colorPrimary</item>
         <item name="android:windowIsTranslucent">true</item>
     </style>

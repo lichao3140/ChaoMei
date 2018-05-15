@@ -13,8 +13,10 @@ import android.view.MenuItem;
 import android.view.View;
 import com.lichao.chaomei.R;
 import com.lichao.chaomei.base.activity.BaseCompatActivity;
+import com.lichao.chaomei.constant.BundleKeyConstant;
 import com.lichao.chaomei.helper.BottomNavigationViewHelper;
 import com.lichao.chaomei.rxbus.RxBus;
+import com.lichao.chaomei.ui.activity.detail.WebViewLoadActivity;
 import com.lichao.chaomei.ui.fragment.book.BookRootFragment;
 import com.lichao.chaomei.ui.fragment.gankio.GankIoRootFragment;
 import com.lichao.chaomei.ui.fragment.home.HomeRootFragment;
@@ -157,17 +159,17 @@ public class MainActivity extends BaseCompatActivity implements HomeFragment.OnO
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.group_item_github:
-//                        Bundle bundle = new Bundle();
-//                        bundle.putString(BundleKeyConstant.ARG_KEY_WEB_VIEW_LOAD_TITLE, "Yizhi");
-//                        bundle.putString(BundleKeyConstant.ARG_KEY_WEB_VIEW_LOAD_URL,
-//                                "https://github.com/Horrarndoo/YiZhi");
-//                        startActivity(WebViewLoadActivity.class, bundle);
+                        Bundle bundle = new Bundle();
+                        bundle.putString(BundleKeyConstant.ARG_KEY_WEB_VIEW_LOAD_TITLE, "ChaoMei");
+                        bundle.putString(BundleKeyConstant.ARG_KEY_WEB_VIEW_LOAD_URL,
+                                "https://github.com/lichao3140/ChaoMei");
+                        startActivity(WebViewLoadActivity.class, bundle);
                         break;
                     case R.id.group_item_more:
-//                        Bundle bundle2 = new Bundle();
-//                        bundle2.putString(BundleKeyConstant.ARG_KEY_WEB_VIEW_LOAD_TITLE, "Horrarndoo");
-//                        bundle2.putString(BundleKeyConstant.ARG_KEY_WEB_VIEW_LOAD_URL, "http://blog.csdn.net/oqinyou");
-//                        startActivity(WebViewLoadActivity.class, bundle2);
+                        Bundle bundle2 = new Bundle();
+                        bundle2.putString(BundleKeyConstant.ARG_KEY_WEB_VIEW_LOAD_TITLE, "ChaoLi");
+                        bundle2.putString(BundleKeyConstant.ARG_KEY_WEB_VIEW_LOAD_URL, "https://github.com/lichao3140");
+                        startActivity(WebViewLoadActivity.class, bundle2);
                         break;
                     case R.id.group_item_qr_code:
 //                        startActivity(QRCodeActivity.class);

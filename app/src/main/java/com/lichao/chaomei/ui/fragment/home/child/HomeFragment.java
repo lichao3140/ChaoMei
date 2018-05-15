@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -126,9 +125,9 @@ public class HomeFragment extends BaseMVPCompatFragment<HomeMainContract.HomeMai
             @Override
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
-                bundle.putString(BundleKeyConstant.ARG_KEY_WEB_VIEW_LOAD_TITLE, "Yizhi");
+                bundle.putString(BundleKeyConstant.ARG_KEY_WEB_VIEW_LOAD_TITLE, "ChaoMei");
                 bundle.putString(BundleKeyConstant.ARG_KEY_WEB_VIEW_LOAD_URL,
-                        "https://github.com/Horrarndoo/YiZhi");
+                        "https://github.com/lichao3140/ChaoMei");
                 startNewActivity(WebViewLoadActivity.class, bundle);
             }
         });
