@@ -35,6 +35,8 @@ import butterknife.BindView;
 import cn.sharesdk.framework.Platform;
 import cn.sharesdk.onekeyshare.OnekeyShare;
 import cn.sharesdk.onekeyshare.ShareContentCustomizeCallback;
+import cn.smssdk.EventHandler;
+import cn.smssdk.SMSSDK;
 import de.hdodenhof.circleimageview.CircleImageView;
 import me.yokeyword.fragmentation.SupportFragment;
 import static com.lichao.chaomei.constant.HeadConstant.HEAD_IMAGE_NAME;
@@ -180,6 +182,9 @@ public class MainActivity extends BaseCompatActivity implements HomeFragment.OnO
                     case R.id.group_item_share_project:
                         showShare();
                         break;
+                    case R.id.group_item_phone:
+                        sendCode("86", "15889750515");
+                        break;
                     case R.id.item_model:
                         SpUtils.setNightModel(mContext, !SpUtils.getNightModel(mContext));
                         MainActivity.this.reload();
@@ -264,12 +269,17 @@ public class MainActivity extends BaseCompatActivity implements HomeFragment.OnO
 
     private void showShare() {
         OnekeyShare oks = new OnekeyShare();
-        oks.setSilent(false);
+        //关闭sso授权
         oks.disableSSOWhenAuthorize();
+        oks.setSilent(false);
+        // title标题，微信、QQ和QQ空间等平台使用
         oks.setTitle("ChaoMei");
+        // text是分享文本，所有平台都需要这个字段
         oks.setText("超美Github源码");
+        // titleUrl QQ和QQ空间跳转链接
         oks.setTitleUrl("https://github.com/lichao3140/ChaoMei");
         Bitmap imageData = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher);
+        // imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
         oks.setImageData(imageData);
         oks.setShareContentCustomizeCallback(new ShareContentCustomizeCallback() {
             @Override
@@ -277,10 +287,71 @@ public class MainActivity extends BaseCompatActivity implements HomeFragment.OnO
                 if(platform.getName().equals("SinaWeibo")) {
                     shareParams.setText("wenben  http://www.baidu.com");
                     shareParams.setUrl(null);
+                } else if(platform.getName().equals("Wechat")) {
+                    shareParams.setImageUrl("https://infile.cekom.com.cn/test/fileStore/portal/ecdoc/thumbnail/ios/20173/b08cb10aa52d4004b277e6ac53363e73.jpg");
+                    shareParams.setUrl("https://github.com/lichao3140/ChaoMei");
+                    shareParams.setTitle("ChaoMei");
+                    shareParams.setText("超美Github源码");
                 }
             }
         });
+        // 启动分享GUI
         oks.show(MainActivity.this);
+    }
+
+    /**
+     * 请求验证码
+     * @param country  国家代码
+     * @param phone  手机号码
+     */
+    public void sendCode(String country, String phone) {
+        // 注册一个事件回调，用于处理发送验证码操作的结果
+        SMSSDK.registerEventHandler(new EventHandler() {
+            public void afterEvent(int event, int result, Object data) {
+                if (result == SMSSDK.RESULT_COMPLETE) {
+                    // TODO 处理成功得到验证码的结果
+                    // 请注意，此时只是完成了发送验证码的请求，验证码短信还需要几秒钟之后才送达
+                    if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE) {
+                        System.out.println("--------event---"+event+"--------result*" + result);
+                        runOnUiThread(new Runnable() {
+                            public void run() {
+                                ToastUtils.showToast("发送成功");
+                            }
+                        });
+                    }
+                } else{
+                    // TODO 处理错误的结果
+                    System.out.println("-------------------------发送失败" + result+data);
+                }
+                // 用完回调要注销，否则会造成泄露
+                SMSSDK.unregisterEventHandler(this);
+            }
+        });
+        // 触发操作
+        SMSSDK.getVerificationCode(country, phone);
+    }
+
+    /**
+     * 提交验证码
+     * @param country 国家
+     * @param phone 手机号码
+     * @param code 验证码
+     */
+    public void submitCode(String country, String phone, String code) {
+        // 注册一个事件回调，用于处理提交验证码操作的结果
+        SMSSDK.registerEventHandler(new EventHandler() {
+            public void afterEvent(int event, int result, Object data) {
+                if (result == SMSSDK.RESULT_COMPLETE) {
+                    // TODO 处理验证成功的结果
+                } else {
+                    // TODO 处理错误的结果
+                }
+                // 用完回调要注销，否则会造成泄露
+                SMSSDK.unregisterEventHandler(this);
+            }
+        });
+        // 触发操作
+        SMSSDK.submitVerificationCode(country, phone, code);
     }
 
     public native String stringFromJNI();
