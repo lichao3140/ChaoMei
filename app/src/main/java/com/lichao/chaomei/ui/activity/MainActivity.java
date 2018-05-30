@@ -32,6 +32,9 @@ import com.lichao.chaomei.utils.SpUtils;
 import com.lichao.chaomei.utils.ToastUtils;
 import java.io.File;
 import butterknife.BindView;
+import cn.sharesdk.framework.Platform;
+import cn.sharesdk.onekeyshare.OnekeyShare;
+import cn.sharesdk.onekeyshare.ShareContentCustomizeCallback;
 import de.hdodenhof.circleimageview.CircleImageView;
 import me.yokeyword.fragmentation.SupportFragment;
 import static com.lichao.chaomei.constant.HeadConstant.HEAD_IMAGE_NAME;
@@ -175,7 +178,7 @@ public class MainActivity extends BaseCompatActivity implements HomeFragment.OnO
 //                        startActivity(QRCodeActivity.class);
                         break;
                     case R.id.group_item_share_project:
-//                        showShare();
+                        showShare();
                         break;
                     case R.id.item_model:
                         SpUtils.setNightModel(mContext, !SpUtils.getNightModel(mContext));
@@ -257,6 +260,27 @@ public class MainActivity extends BaseCompatActivity implements HomeFragment.OnO
                 ToastUtils.showToast(R.string.press_again);
             }
         }
+    }
+
+    private void showShare() {
+        OnekeyShare oks = new OnekeyShare();
+        oks.setSilent(false);
+        oks.disableSSOWhenAuthorize();
+        oks.setTitle("ChaoMei");
+        oks.setText("超美Github源码");
+        oks.setTitleUrl("https://github.com/lichao3140/ChaoMei");
+        Bitmap imageData = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher);
+        oks.setImageData(imageData);
+        oks.setShareContentCustomizeCallback(new ShareContentCustomizeCallback() {
+            @Override
+            public void onShare(Platform platform, Platform.ShareParams shareParams) {
+                if(platform.getName().equals("SinaWeibo")) {
+                    shareParams.setText("wenben  http://www.baidu.com");
+                    shareParams.setUrl(null);
+                }
+            }
+        });
+        oks.show(MainActivity.this);
     }
 
     public native String stringFromJNI();
